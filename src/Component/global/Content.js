@@ -51,7 +51,17 @@ class Content extends Component{
            // console.log(this.state.lista);
             switch (this.state.operacion){
                 case "V": contenedor=(<div className="alert alert-info">{this.state.mensaje}</div>);break;
-                case true: contenedor=(<div><Listardatos listado={this.state.lista}/></div>);break;
+                case true: contenedor=(<div><Listardatos listado={this.state.lista}
+                    /* JDLC ADD => DATA TO ListarComprobantes Component */
+                    nombreUpdate   = {this.state.nombre_apellido}
+                    periodoIUpdate = {this.state.dates}
+                    conceptoUpdate = {this.state.concepto}
+                    periodoFUpdate = {this.state.dates2}
+                    voucherUpdate  = {this.state.voucher}
+                    dniUpdate      = {this.state.dni}
+                    codigoUpdate   = {this.state.codigo}
+                    
+                /></div>);break;
                 case false: contenedor=(<div className="alert alert-info">{this.state.mensaje}</div>);break;
                 default: contenedor=(<div></div>);
             }
@@ -186,11 +196,13 @@ class Content extends Component{
 
            })
                .then((response) => {
+                console.log(response);
                    return response.json()
+
                })
                .then(responseJson => {
                    this.setState({
-                       lista: responseJson.data,
+                       lista: responseJson.data, //Todos los datos
                        estado:true,
                        operacion: (responseJson.data!==null && responseJson.data.length!==0),
                        mensaje:(responseJson.data!==null && responseJson.data.length!==0)?(""):("Datos no encontrados"),

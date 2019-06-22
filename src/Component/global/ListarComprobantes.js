@@ -235,7 +235,7 @@ class ListarComponentes extends Component {
     }
     openModalUpg(e) {
         let id = e;
-        const url = 'https://modulocontrol.herokuapp.com/recaudaciones/observaciones/' + id;
+        const url = 'https://back-demo-sigap.herokuapp.com/recaudaciones/observaciones/' + id;
         //console.log(url);
         fetch(url, {
             method: 'GET',
@@ -419,7 +419,7 @@ class ListarComponentes extends Component {
                                     <span className="mybtn-red glyphicon glyphicon-eye-open"></span>
                                 </button>
                                 <button id={dynamicData.observacion} name={dynamicData.id_rec}
-                                    onClick={(e) => this.openModal(dynamicData.id_rec, dynamicData.obs)} className="btn btn-primary">
+                                    onClick={(e) => this.openModalUpg(dynamicData.id_rec, dynamicData.obs)} className="btn btn-primary">
                                     <span className="mybtn-blue glyphicon glyphicon-eye-open"></span>
                                 </button>
                             </td>
